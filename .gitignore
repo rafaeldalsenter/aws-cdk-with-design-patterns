@@ -17,6 +17,7 @@
 mono_crash.*
 
 # Build results
+cdk.out/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
