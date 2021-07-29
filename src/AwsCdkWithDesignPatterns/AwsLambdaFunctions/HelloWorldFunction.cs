@@ -6,20 +6,22 @@ using AwsCdkWithDesignPatterns.Domain.Factories;
 
 namespace AwsCdkExtensions.AwsLambdaFunctions
 {
-    public class MaisUmHelloWorldFunction : LambdaFunctionFactory
+    public class HelloWorldFunction : LambdaFunctionFactory
     {
-        public MaisUmHelloWorldFunction(Construct construct) : base(construct)
+        public HelloWorldFunction(Construct construct) : base(construct)
         {
         }
 
-        protected override LambdaFunctionDomain FactoryMethod() =>
-            new LambdaFunctionBuilder()
+        protected override LambdaFunctionDomain FactoryMethod()
+        {
+            return new LambdaFunctionBuilder()
                 .WithConstruct(Construct)
-                .WithDescription("description1")
+                .WithDescription("description")
                 .WithHandler("hello.handler")
-                .WithName("functionName1")
+                .WithName("functionName")
                 .WithRuntime(Runtime.DOTNET_CORE_3_1)
                 .WithTimeout(Duration.Seconds(10))
                 .Build();
+        }
     }
 }

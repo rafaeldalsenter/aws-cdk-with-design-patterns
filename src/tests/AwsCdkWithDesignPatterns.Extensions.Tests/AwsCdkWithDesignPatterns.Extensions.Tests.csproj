@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\AwsCdkWithDesignPatterns.Domain\AwsCdkWithDesignPatterns.Domain.csproj" />
+      <ProjectReference Include="..\..\AwsCdkWithDesignPatterns.Extensions\AwsCdkWithDesignPatterns.Extensions.csproj" />
     </ItemGroup>
 
 </Project>

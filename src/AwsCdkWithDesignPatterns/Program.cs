@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using Amazon.CDK;
-using AwsCdkWithDesignPatterns.Domain.Factories.Interfaces;
+﻿using Amazon.CDK;
 
 namespace AwsCdkExtensions
 {
@@ -11,7 +8,7 @@ namespace AwsCdkExtensions
         {
             var app = new App();
             new DevelopmentStack(app, "TestStack");
-            
+
             app.Synth();
         }
     }

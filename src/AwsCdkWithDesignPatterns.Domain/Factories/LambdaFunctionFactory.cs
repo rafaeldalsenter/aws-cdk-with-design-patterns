@@ -15,8 +15,6 @@ namespace AwsCdkWithDesignPatterns.Domain.Factories
             Construct = construct;
         }
 
-        protected abstract LambdaFunctionDomain FactoryMethod();
-
         public void Create()
         {
             var functionLambdaDomain = FactoryMethod();
@@ -35,5 +33,7 @@ namespace AwsCdkWithDesignPatterns.Domain.Factories
                     Code = Code.FromAsset("lambda")
                 });
         }
+
+        protected abstract LambdaFunctionDomain FactoryMethod();
     }
 }

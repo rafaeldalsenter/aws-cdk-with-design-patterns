@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Amazon.CDK;
-using AwsCdkExtensions.AwsLambdaFunctions;
-using AwsCdkWithDesignPatterns.Domain;
 using AwsCdkWithDesignPatterns.Domain.Factories.Interfaces;
 using AwsCdkWithDesignPatterns.Extensions;
 
@@ -16,10 +14,9 @@ namespace AwsCdkExtensions
             AppDomain.CurrentDomain.GetClassesImplementingInterface<IFactory>()
                 .ToList().ForEach(x =>
                 {
-                    var factory = (IFactory)Activator.CreateInstance(x, this);
+                    var factory = (IFactory) Activator.CreateInstance(x, this);
                     factory.Create();
                 });
-
         }
     }
 }

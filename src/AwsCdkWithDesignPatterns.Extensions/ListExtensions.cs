@@ -6,9 +6,7 @@ namespace AwsCdkWithDesignPatterns.Extensions
     {
         public static string ToStringConcat(this IList<string> value)
         {
-            if (value is null) return "";
-
-            return string.Join(";", value);
+            return value is null ? "" : string.Join(";", value);
         }
     }
 }
