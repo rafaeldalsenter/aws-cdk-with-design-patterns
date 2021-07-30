@@ -1,5 +1,5 @@
-﻿using Amazon.CDK;
-using Amazon.CDK.AWS.Lambda;
+﻿using System;
+using AwsCdkWithDesignPatterns.Domain.LambdaFunctionRuntimes;
 
 namespace AwsCdkWithDesignPatterns.Domain.Builders.Interfaces
 {
@@ -9,14 +9,12 @@ namespace AwsCdkWithDesignPatterns.Domain.Builders.Interfaces
 
         ILambdaFunctionBuilder WithHandler(string handler);
 
-        ILambdaFunctionBuilder WithRuntime(Runtime runtime);
+        ILambdaFunctionBuilder WithRuntime(ILambdaFunctionRuntime runtime);
 
         ILambdaFunctionBuilder WithDescription(string description);
 
         ILambdaFunctionBuilder WithName(string name);
 
-        ILambdaFunctionBuilder WithTimeout(Duration timeout);
-
-        ILambdaFunctionBuilder WithConstruct(Construct construct);
+        ILambdaFunctionBuilder WithTimeout(TimeSpan timeout);
     }
 }

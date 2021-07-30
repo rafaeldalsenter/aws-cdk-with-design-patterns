@@ -22,14 +22,14 @@ namespace AwsCdkWithDesignPatterns.Domain.Factories
             if (!functionLambdaDomain.IsValid())
                 throw new Exception(functionLambdaDomain.ErrorMessages.ToStringConcat());
 
-            var function = new Function(functionLambdaDomain.Construct, functionLambdaDomain.FunctionName,
+            var function = new Function(Construct, functionLambdaDomain.FunctionName,
                 new FunctionProps
                 {
-                    Runtime = functionLambdaDomain.Runtime,
+                    Runtime = functionLambdaDomain.Runtime.GetRuntime(),
                     Handler = functionLambdaDomain.Handler,
                     Description = functionLambdaDomain.Description,
                     FunctionName = functionLambdaDomain.FunctionName,
-                    Timeout = functionLambdaDomain.Timeout,
+                    Timeout = Duration.Seconds(functionLambdaDomain.Timeout.Seconds),
                     Code = Code.FromAsset("lambda")
                 });
         }

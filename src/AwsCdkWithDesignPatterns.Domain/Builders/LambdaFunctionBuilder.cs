@@ -1,21 +1,20 @@
-﻿using Amazon.CDK;
-using Amazon.CDK.AWS.Lambda;
+﻿using System;
 using AwsCdkWithDesignPatterns.Domain.Builders.Interfaces;
+using AwsCdkWithDesignPatterns.Domain.LambdaFunctionRuntimes;
 
 namespace AwsCdkWithDesignPatterns.Domain.Builders
 {
     public class LambdaFunctionBuilder : ILambdaFunctionBuilder
     {
-        private Construct _construct;
         private string _description;
         private string _handler;
         private string _name;
-        private Runtime _runtime;
-        private Duration _timeout;
+        private ILambdaFunctionRuntime _runtime;
+        private TimeSpan _timeout;
 
         public LambdaFunctionDomain Build()
         {
-            return new(_handler, _construct, _runtime, _description, _name, _timeout);
+            return new(_handler, _runtime, _description, _name, _timeout);
         }
 
         public ILambdaFunctionBuilder WithHandler(string handler)
@@ -24,7 +23,7 @@ namespace AwsCdkWithDesignPatterns.Domain.Builders
             return this;
         }
 
-        public ILambdaFunctionBuilder WithRuntime(Runtime runtime)
+        public ILambdaFunctionBuilder WithRuntime(ILambdaFunctionRuntime runtime)
         {
             _runtime = runtime;
             return this;
@@ -42,15 +41,9 @@ namespace AwsCdkWithDesignPatterns.Domain.Builders
             return this;
         }
 
-        public ILambdaFunctionBuilder WithTimeout(Duration timeout)
+        public ILambdaFunctionBuilder WithTimeout(TimeSpan timeout)
         {
             _timeout = timeout;
-            return this;
-        }
-
-        public ILambdaFunctionBuilder WithConstruct(Construct construct)
-        {
-            _construct = construct;
             return this;
         }
     }

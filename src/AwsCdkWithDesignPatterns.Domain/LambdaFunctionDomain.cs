@@ -1,14 +1,13 @@
-﻿using Amazon.CDK;
-using Amazon.CDK.AWS.Lambda;
+﻿using System;
+using AwsCdkWithDesignPatterns.Domain.LambdaFunctionRuntimes;
 
 namespace AwsCdkWithDesignPatterns.Domain
 {
     public class LambdaFunctionDomain : AbstractDomain
     {
-        internal LambdaFunctionDomain(string handler, Construct construct, Runtime runtime, string description,
-            string functionName, Duration timeout)
+        internal LambdaFunctionDomain(string handler, ILambdaFunctionRuntime runtime, string description,
+            string functionName, TimeSpan timeout)
         {
-            SetConstruct(construct);
             SetHandler(handler);
             SetRuntime(runtime);
             SetDescription(description);
@@ -17,18 +16,12 @@ namespace AwsCdkWithDesignPatterns.Domain
         }
 
         public string Handler { get; private set; }
-        public Runtime Runtime { get; private set; }
+        public ILambdaFunctionRuntime Runtime { get; private set; }
         public string Description { get; private set; }
         public string FunctionName { get; private set; }
-        public Duration Timeout { get; private set; }
-        public Construct Construct { get; private set; }
+        public TimeSpan Timeout { get; private set; }
 
-        private void SetConstruct(Construct construct)
-        {
-            Construct = construct;
-        }
-
-        private void SetTimeout(Duration timeout)
+        private void SetTimeout(TimeSpan timeout)
         {
             Timeout = timeout;
         }
@@ -44,9 +37,9 @@ namespace AwsCdkWithDesignPatterns.Domain
             Handler = handler;
         }
 
-        private void SetRuntime(Runtime runtime)
+        private void SetRuntime(ILambdaFunctionRuntime runtime)
         {
-            if (!runtime.Equals(Runtime.DOTNET_CORE_3_1))
+            if (runtime is not LambdaFunctionRuntimeDotnetCore31)
             {
                 AddError("Somente é permitido funções lambda em .NET Core 3.1");
                 return;

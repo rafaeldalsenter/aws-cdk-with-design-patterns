@@ -1,8 +1,9 @@
-﻿using Amazon.CDK;
-using Amazon.CDK.AWS.Lambda;
+﻿using System;
+using Amazon.CDK;
 using AwsCdkWithDesignPatterns.Domain;
 using AwsCdkWithDesignPatterns.Domain.Builders;
 using AwsCdkWithDesignPatterns.Domain.Factories;
+using AwsCdkWithDesignPatterns.Domain.LambdaFunctionRuntimes;
 
 namespace AwsCdkExtensions.AwsLambdaFunctions
 {
@@ -15,12 +16,11 @@ namespace AwsCdkExtensions.AwsLambdaFunctions
         protected override LambdaFunctionDomain FactoryMethod()
         {
             return new LambdaFunctionBuilder()
-                .WithConstruct(Construct)
                 .WithDescription("description1")
                 .WithHandler("hello.handler")
                 .WithName("functionName1")
-                .WithRuntime(Runtime.DOTNET_CORE_3_1)
-                .WithTimeout(Duration.Seconds(10))
+                .WithRuntime(new LambdaFunctionRuntimeDotnetCore31())
+                .WithTimeout(TimeSpan.FromSeconds(10))
                 .Build();
         }
     }
