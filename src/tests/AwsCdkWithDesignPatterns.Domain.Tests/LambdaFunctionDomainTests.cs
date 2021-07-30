@@ -1,5 +1,4 @@
 ﻿using System;
-using Amazon.CDK.AWS.Lambda;
 using AwsCdkWithDesignPatterns.Domain.Builders;
 using AwsCdkWithDesignPatterns.Domain.LambdaFunctionRuntimes;
 using Xunit;
@@ -69,7 +68,7 @@ namespace AwsCdkWithDesignPatterns.Domain.Tests
             var expectedName = "test name";
             var expectedRuntime = new LambdaFunctionRuntimeDotnetCore31();
             var expectedTimeout = TimeSpan.FromSeconds(10);
-            
+
             var result = new LambdaFunctionBuilder()
                 .WithHandler(expectedHandler)
                 .WithDescription(expectedDescription)
@@ -83,7 +82,6 @@ namespace AwsCdkWithDesignPatterns.Domain.Tests
             Assert.Equal(expectedName, result.FunctionName);
             Assert.IsType(expectedRuntime.GetType(), result.Runtime);
             Assert.Equal(expectedTimeout.Seconds, result.Timeout.Seconds);
-
         }
     }
 }
