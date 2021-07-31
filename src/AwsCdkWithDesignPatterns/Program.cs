@@ -7,8 +7,7 @@ namespace AwsCdkExtensions
         public static void Main(string[] args)
         {
             var app = new App();
-            new DevelopmentStack(app, "TestStack");
-
+            new DevelopmentStack(app, "DevelopmentStack");
             app.Synth();
         }
     }
