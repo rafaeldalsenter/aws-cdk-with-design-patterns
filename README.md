@@ -11,6 +11,10 @@ It uses AWS CDK library that allows creating Infra as code using C# and deployin
 
 If you liked the project, please give a star! 🌟
 
+| CodeFactor |
+|:---:|
+|[![CodeFactor](https://www.codefactor.io/repository/github/rafaeldalsenter/aws-cdk-with-design-patterns/badge?s=ccf1c724015f7f223250477195318fa1816b920b)](https://www.codefactor.io/repository/github/rafaeldalsenter/aws-cdk-with-design-patterns)|
+
 ## Domain layer
 
 At the domain layer, there are two main items:
