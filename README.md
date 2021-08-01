@@ -12,14 +12,12 @@ It uses AWS CDK library that allows creating Infra as code using C# and deployin
 If you liked the project, please give a star! 🌟
 
 ## Domain layer
----
 
 At the domain layer, there are two main items:
 - LambdaFunctionDomain: Contains all properties necessary to create a AWS Lambda function, and specific rules can be created (for example, only allow Lambda functions in .NET Core 3.1).
 - LambdaFunctionFactory: From the constructed domain, this class creates the corresponding AWS CDK object. It must be implemented in each Lambda Function you want to create.
 
 ## Getting Started
----
 
 The main project contains the usage example, where two Lambda functions are created. The creation basically consists of implementing the LambdaFunctionFactory:
 
@@ -52,7 +50,6 @@ cdk deploy
 ```
 
 ## Limitations
----
 
 Running the AWS CDK consists of converting to an AWS CloudFormation template and running. For this reason, unit tests only cover areas where there are no CDK object references (domain classes and extensions).
 
