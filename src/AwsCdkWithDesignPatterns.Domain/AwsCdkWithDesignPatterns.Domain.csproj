@@ -6,6 +6,7 @@
 
     <ItemGroup>
       <PackageReference Include="Amazon.CDK.AWS.Lambda" Version="1.114.0" />
+      <PackageReference Include="Flunt" Version="2.0.4" />
     </ItemGroup>
 
     <ItemGroup>

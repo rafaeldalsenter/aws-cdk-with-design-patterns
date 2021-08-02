@@ -1,9 +1,9 @@
 ﻿using System;
 using Amazon.CDK;
-using AwsCdkWithDesignPatterns.Domain;
 using AwsCdkWithDesignPatterns.Domain.Builders;
+using AwsCdkWithDesignPatterns.Domain.Entities;
+using AwsCdkWithDesignPatterns.Domain.Entities.LambdaFunctionRuntimes;
 using AwsCdkWithDesignPatterns.Domain.Factories;
-using AwsCdkWithDesignPatterns.Domain.LambdaFunctionRuntimes;
 
 namespace AwsCdkExtensions.AwsLambdaFunctions
 {

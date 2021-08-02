@@ -1,6 +1,6 @@
 ﻿using System;
 using AwsCdkWithDesignPatterns.Domain.Builders;
-using AwsCdkWithDesignPatterns.Domain.LambdaFunctionRuntimes;
+using AwsCdkWithDesignPatterns.Domain.Entities.LambdaFunctionRuntimes;
 using Xunit;
 
 namespace AwsCdkWithDesignPatterns.Domain.Tests
@@ -17,7 +17,7 @@ namespace AwsCdkWithDesignPatterns.Domain.Tests
                 .WithTimeout(TimeSpan.FromSeconds(10))
                 .Build();
 
-            Assert.False(result.IsValid());
+            Assert.False(result.IsValid);
         }
 
         [Fact]
@@ -31,7 +31,7 @@ namespace AwsCdkWithDesignPatterns.Domain.Tests
                 .WithTimeout(TimeSpan.FromSeconds(10))
                 .Build();
 
-            Assert.False(result.IsValid());
+            Assert.False(result.IsValid);
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace AwsCdkWithDesignPatterns.Domain.Tests
                 .WithTimeout(TimeSpan.FromSeconds(10))
                 .Build();
 
-            Assert.False(result.IsValid());
+            Assert.False(result.IsValid);
         }
 
         [Fact]
@@ -57,7 +57,7 @@ namespace AwsCdkWithDesignPatterns.Domain.Tests
                 .WithTimeout(TimeSpan.FromSeconds(10))
                 .Build();
 
-            Assert.True(result.IsValid());
+            Assert.True(result.IsValid);
         }
 
         [Fact]

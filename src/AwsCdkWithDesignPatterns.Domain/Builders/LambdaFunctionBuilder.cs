@@ -1,6 +1,7 @@
 ﻿using System;
 using AwsCdkWithDesignPatterns.Domain.Builders.Interfaces;
-using AwsCdkWithDesignPatterns.Domain.LambdaFunctionRuntimes;
+using AwsCdkWithDesignPatterns.Domain.Entities;
+using AwsCdkWithDesignPatterns.Domain.Entities.LambdaFunctionRuntimes;
 
 namespace AwsCdkWithDesignPatterns.Domain.Builders
 {

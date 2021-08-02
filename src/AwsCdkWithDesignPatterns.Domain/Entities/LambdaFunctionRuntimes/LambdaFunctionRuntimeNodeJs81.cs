@@ -1,6 +1,6 @@
 ﻿using Amazon.CDK.AWS.Lambda;
 
-namespace AwsCdkWithDesignPatterns.Domain.LambdaFunctionRuntimes
+namespace AwsCdkWithDesignPatterns.Domain.Entities.LambdaFunctionRuntimes
 {
     public class LambdaFunctionRuntimeNodeJs81 : ILambdaFunctionRuntime
     {

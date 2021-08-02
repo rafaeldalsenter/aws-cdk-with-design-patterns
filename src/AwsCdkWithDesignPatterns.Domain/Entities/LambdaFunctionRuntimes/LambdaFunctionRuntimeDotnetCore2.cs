@@ -1,6 +1,6 @@
 ﻿using Amazon.CDK.AWS.Lambda;
 
-namespace AwsCdkWithDesignPatterns.Domain.LambdaFunctionRuntimes
+namespace AwsCdkWithDesignPatterns.Domain.Entities.LambdaFunctionRuntimes
 {
     public class LambdaFunctionRuntimeDotnetCore2 : ILambdaFunctionRuntime
     {

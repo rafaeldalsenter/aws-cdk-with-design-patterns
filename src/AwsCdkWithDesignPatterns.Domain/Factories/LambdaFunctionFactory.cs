@@ -1,6 +1,7 @@
 ﻿using System;
 using Amazon.CDK;
 using Amazon.CDK.AWS.Lambda;
+using AwsCdkWithDesignPatterns.Domain.Entities;
 using AwsCdkWithDesignPatterns.Domain.Factories.Interfaces;
 using AwsCdkWithDesignPatterns.Extensions;
 
@@ -19,8 +20,8 @@ namespace AwsCdkWithDesignPatterns.Domain.Factories
         {
             var functionLambdaDomain = FactoryMethod();
 
-            if (!functionLambdaDomain.IsValid())
-                throw new Exception(functionLambdaDomain.ErrorMessages.ToStringConcat());
+            if (!functionLambdaDomain.IsValid)
+                throw new Exception(functionLambdaDomain.Notifications.ToStringConcat());
 
             var function = new Function(Construct, functionLambdaDomain.FunctionName,
                 new FunctionProps
