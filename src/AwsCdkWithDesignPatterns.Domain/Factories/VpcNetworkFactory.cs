@@ -1,6 +1,7 @@
 ﻿using Amazon.CDK;
 using Amazon.CDK.AWS.EC2;
 using AwsCdkWithDesignPatterns.Domain.Entities;
+using AwsCdkWithDesignPatterns.Domain.Factories.Interfaces;
 
 namespace AwsCdkWithDesignPatterns.Domain.Factories
 {

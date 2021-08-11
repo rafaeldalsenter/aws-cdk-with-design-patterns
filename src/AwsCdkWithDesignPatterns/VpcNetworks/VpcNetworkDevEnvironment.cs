@@ -14,9 +14,9 @@ namespace AwsCdkExtensions.VpcNetworks
         protected override VpcNetwork FactoryMethod()
         {
             return new VpcNetworkBuilder()
-                .WithCidr("")
-                .WithName("")
-                .WithMaxAzs(0)
+                .WithCidr("10.0.0.0/24")
+                .WithName("TestVPC")
+                .WithMaxAzs(1)
                 .Build();
         }
     }

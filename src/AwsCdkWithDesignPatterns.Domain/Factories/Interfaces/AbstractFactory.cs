@@ -1,10 +1,9 @@
 ﻿using System;
 using Amazon.CDK;
-using AwsCdkWithDesignPatterns.Domain.Factories.Interfaces;
 using AwsCdkWithDesignPatterns.Extensions;
 using Flunt.Notifications;
 
-namespace AwsCdkWithDesignPatterns.Domain.Factories
+namespace AwsCdkWithDesignPatterns.Domain.Factories.Interfaces
 {
     public abstract class AbstractFactory<TEntity, TAwsCdkResource> : IFactory
         where TEntity : Notifiable<Notification>
