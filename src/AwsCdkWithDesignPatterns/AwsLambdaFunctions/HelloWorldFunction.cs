@@ -13,7 +13,7 @@ namespace AwsCdkExtensions.AwsLambdaFunctions
         {
         }
 
-        protected override LambdaFunctionDomain FactoryMethod()
+        protected override LambdaFunction FactoryMethod()
         {
             return new LambdaFunctionBuilder()
                 .WithDescription("description")

@@ -13,7 +13,7 @@ namespace AwsCdkWithDesignPatterns.Domain.Builders
         private ILambdaFunctionRuntime _runtime;
         private TimeSpan _timeout;
 
-        public LambdaFunctionDomain Build()
+        public LambdaFunction Build()
         {
             return new(_handler, _runtime, _description, _name, _timeout);
         }

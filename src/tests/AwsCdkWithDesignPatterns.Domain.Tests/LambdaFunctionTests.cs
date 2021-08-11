@@ -5,10 +5,10 @@ using Xunit;
 
 namespace AwsCdkWithDesignPatterns.Domain.Tests
 {
-    public class LambdaFunctionDomainTests
+    public class LambdaFunctionTests
     {
         [Fact]
-        public void LambdaFunctionDomain_WithoutHandler()
+        public void LambdaFunction_WithoutHandler()
         {
             var result = new LambdaFunctionBuilder()
                 .WithDescription("description")
@@ -21,7 +21,7 @@ namespace AwsCdkWithDesignPatterns.Domain.Tests
         }
 
         [Fact]
-        public void LambdaFunctionDomain_WithRuntimeDiffDotnetCore()
+        public void LambdaFunction_WithRuntimeDiffDotnetCore()
         {
             var result = new LambdaFunctionBuilder()
                 .WithHandler("function.handler")
@@ -35,7 +35,7 @@ namespace AwsCdkWithDesignPatterns.Domain.Tests
         }
 
         [Fact]
-        public void LambdaFunctionDomain_WithoutDescriptionAndName()
+        public void LambdaFunction_WithoutDescriptionAndName()
         {
             var result = new LambdaFunctionBuilder()
                 .WithHandler("function.handler")
@@ -47,7 +47,7 @@ namespace AwsCdkWithDesignPatterns.Domain.Tests
         }
 
         [Fact]
-        public void LambdaFunctionDomain_Ok()
+        public void LambdaFunction_Ok()
         {
             var result = new LambdaFunctionBuilder()
                 .WithHandler("function.handler")
@@ -61,7 +61,7 @@ namespace AwsCdkWithDesignPatterns.Domain.Tests
         }
 
         [Fact]
-        public void LambdaFunctionDomain_AssignedTheValues()
+        public void LambdaFunction_AssignedTheValues()
         {
             var expectedHandler = "teste.handler";
             var expectedDescription = "description test";
