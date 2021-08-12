@@ -6,7 +6,7 @@ namespace AwsCdkWithDesignPatterns.Domain.Builders.Interfaces
 {
     public interface ILambdaFunctionBuilder
     {
-        LambdaFunctionDomain Build();
+        LambdaFunction Build();
 
         ILambdaFunctionBuilder WithHandler(string handler);
 

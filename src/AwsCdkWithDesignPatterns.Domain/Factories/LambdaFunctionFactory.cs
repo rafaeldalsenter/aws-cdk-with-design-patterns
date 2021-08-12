@@ -1,40 +1,28 @@
-﻿using System;
-using Amazon.CDK;
+﻿using Amazon.CDK;
 using Amazon.CDK.AWS.Lambda;
 using AwsCdkWithDesignPatterns.Domain.Entities;
 using AwsCdkWithDesignPatterns.Domain.Factories.Interfaces;
-using AwsCdkWithDesignPatterns.Extensions;
 
 namespace AwsCdkWithDesignPatterns.Domain.Factories
 {
-    public abstract class LambdaFunctionFactory : IFactory
+    public abstract class LambdaFunctionFactory : AbstractFactory<LambdaFunction, Function>
     {
-        protected readonly Construct Construct;
-
-        protected LambdaFunctionFactory(Construct construct)
+        protected LambdaFunctionFactory(Construct construct) : base(construct)
         {
-            Construct = construct;
         }
 
-        public void Create()
+        internal override Function CreateAwsCdkResource(LambdaFunction domain)
         {
-            var functionLambdaDomain = FactoryMethod();
-
-            if (!functionLambdaDomain.IsValid)
-                throw new Exception(functionLambdaDomain.Notifications.ToStringConcat());
-
-            var function = new Function(Construct, functionLambdaDomain.FunctionName,
+            return new(Construct, domain.FunctionName,
                 new FunctionProps
                 {
-                    Runtime = functionLambdaDomain.Runtime.GetRuntime(),
-                    Handler = functionLambdaDomain.Handler,
-                    Description = functionLambdaDomain.Description,
-                    FunctionName = functionLambdaDomain.FunctionName,
-                    Timeout = Duration.Seconds(functionLambdaDomain.Timeout.Seconds),
+                    Runtime = domain.Runtime.GetRuntime(),
+                    Handler = domain.Handler,
+                    Description = domain.Description,
+                    FunctionName = domain.FunctionName,
+                    Timeout = Duration.Seconds(domain.Timeout.Seconds),
                     Code = Code.FromAsset("lambda")
                 });
         }
-
-        protected abstract LambdaFunctionDomain FactoryMethod();
     }
 }
