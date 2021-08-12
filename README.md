@@ -50,12 +50,14 @@ public class ExampleFunction : LambdaFunctionFactory
 Is ready! After creating this class, the Stack (DevelopmentStack) will already recognize it, as it will build all the objects that inherit from IFactory. Just run the command line to deploy:
 
 ```
-cdk deploy
+cdk diff   // Compares the specified stack with the deployed stack or a local CloudFormation template
+cdk deploy // Deploys the specified stack
 ```
 
 ## Limitations
 
-Running the AWS CDK consists of converting to an AWS CloudFormation template and running. For this reason, unit tests only cover areas where there are no CDK object references (domain classes and extensions).
+Running the AWS CDK consists of [converting to an Javascript classes](https://aws.github.io/jsii/) (then a AWS CloudFormation template) and running. For this reason, unit tests only cover areas where there are no CDK object references (domain classes and extensions).
+
 
 
 

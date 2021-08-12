@@ -10,9 +10,21 @@ namespace AwsCdkWithDesignPatterns.Domain.Tests
         {
             var result = new VpcNetworkBuilder()
                 .WithCidr("10.0.0.0/24")
+                .WithMaxAzs(1)
+                .Build();
+
+            Assert.False(result.IsValid);
+        }
+
+        [Fact]
+        public void VpcNetwork_WithInvalidMaxSize()
+        {
+            var result = new VpcNetworkBuilder()
+                .WithCidr("10.0.0.0/24")
+                .WithName("name")
                 .WithMaxAzs(0)
                 .Build();
-            
+
             Assert.False(result.IsValid);
         }
 
@@ -22,9 +34,9 @@ namespace AwsCdkWithDesignPatterns.Domain.Tests
             var result = new VpcNetworkBuilder()
                 .WithCidr("invalid")
                 .WithName("name")
-                .WithMaxAzs(0)
+                .WithMaxAzs(1)
                 .Build();
-            
+
             Assert.False(result.IsValid);
         }
 
@@ -34,12 +46,12 @@ namespace AwsCdkWithDesignPatterns.Domain.Tests
             var result = new VpcNetworkBuilder()
                 .WithCidr("10.0.0.0/24")
                 .WithName("name")
-                .WithMaxAzs(0)
+                .WithMaxAzs(1)
                 .Build();
-            
+
             Assert.True(result.IsValid);
         }
-        
+
         [Fact]
         public void VpcNetwork_AssignedTheValues()
         {

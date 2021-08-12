@@ -1,10 +1,13 @@
-﻿using Flunt.Notifications;
+﻿using AwsCdkWithDesignPatterns.Extensions;
+using Flunt.Notifications;
 using Flunt.Validations;
 
 namespace AwsCdkWithDesignPatterns.Domain.Entities
 {
     public class VpcNetwork : Notifiable<Notification>
     {
+        private const int _minimumAzs = 1;
+
         internal VpcNetwork(string name, string cidr, int maxAzs)
         {
             Name = name;
@@ -13,7 +16,10 @@ namespace AwsCdkWithDesignPatterns.Domain.Entities
 
             AddNotifications(new Contract<Notification>()
                 .Requires()
-                .IsNotNullOrWhiteSpace(Name, "VpcNetwork.Name", "Name is required"));
+                .IsNotNullOrWhiteSpace(Name, "VpcNetwork.Name", "Name is required")
+                .IsTrue(Cidr.IsValidCidr(), "VpcNetwork.Cidr", "CIDR is invalid")
+                .IsGreaterOrEqualsThan(MaxAzs, _minimumAzs, "VpcNetwork.MaxAzs",
+                    $"Max Azs must be greater or equal than {_minimumAzs}"));
         }
 
         public string Name { get; }
